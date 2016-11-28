@@ -71,7 +71,7 @@ public class SessionGrpc {
 
   /**
    */
-  public static abstract class SessionImplBase implements io.grpc.BindableService {
+  public static abstract class SessionImplBase implements io.grpc.BindableService, CreateSession, DestroySession {
 
     /**
      * <pre>
@@ -80,7 +80,7 @@ public class SessionGrpc {
      * be used for access to authenticated APIs
      * </pre>
      */
-    public void createSession(edu.hawaii.cfht.protos.authorization.CreateSessionRequest request,
+    @java.lang.Override public void createSession(edu.hawaii.cfht.protos.authorization.CreateSessionRequest request,
         io.grpc.stub.StreamObserver<edu.hawaii.cfht.protos.authorization.CreateSessionResponse> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_CREATE_SESSION, responseObserver);
     }
@@ -91,7 +91,7 @@ public class SessionGrpc {
      * Logout a user or destroy a one time token
      * </pre>
      */
-    public void destroySession(edu.hawaii.cfht.protos.authorization.DestroySessionRequest request,
+    @java.lang.Override public void destroySession(edu.hawaii.cfht.protos.authorization.DestroySessionRequest request,
         io.grpc.stub.StreamObserver<edu.hawaii.cfht.protos.authorization.DestroySessionResponse> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_DESTROY_SESSION, responseObserver);
     }
@@ -296,4 +296,30 @@ public class SessionGrpc {
         METHOD_DESTROY_SESSION);
   }
 
+  public static interface CreateSession {
+    /**
+     * <pre>
+     **
+     * Provide a valid credential and receive a session which will
+     * be used for access to authenticated APIs
+     * </pre>
+     */
+    public void createSession(edu.hawaii.cfht.protos.authorization.CreateSessionRequest request,
+        io.grpc.stub.StreamObserver<edu.hawaii.cfht.protos.authorization.CreateSessionResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_CREATE_SESSION, responseObserver);
+    }
+  }
+
+  public static interface DestroySession {
+    /**
+     * <pre>
+     **
+     * Logout a user or destroy a one time token
+     * </pre>
+     */
+    public void destroySession(edu.hawaii.cfht.protos.authorization.DestroySessionRequest request,
+        io.grpc.stub.StreamObserver<edu.hawaii.cfht.protos.authorization.DestroySessionResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_DESTROY_SESSION, responseObserver);
+    }
+  }
 }
