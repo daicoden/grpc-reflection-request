@@ -305,9 +305,7 @@ public class SessionGrpc {
      * </pre>
      */
     public void createSession(edu.hawaii.cfht.protos.authorization.CreateSessionRequest request,
-        io.grpc.stub.StreamObserver<edu.hawaii.cfht.protos.authorization.CreateSessionResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_CREATE_SESSION, responseObserver);
-    }
+        io.grpc.stub.StreamObserver<edu.hawaii.cfht.protos.authorization.CreateSessionResponse> responseObserver);
   }
 
   public static interface DestroySession {
@@ -318,8 +316,6 @@ public class SessionGrpc {
      * </pre>
      */
     public void destroySession(edu.hawaii.cfht.protos.authorization.DestroySessionRequest request,
-        io.grpc.stub.StreamObserver<edu.hawaii.cfht.protos.authorization.DestroySessionResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_DESTROY_SESSION, responseObserver);
-    }
+        io.grpc.stub.StreamObserver<edu.hawaii.cfht.protos.authorization.DestroySessionResponse> responseObserver);
   }
 }
